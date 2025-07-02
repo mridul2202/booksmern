@@ -26,7 +26,7 @@ mongoose.connect(MONGODB_URI, {
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: process.env.CLIENT_API_URL ? process.env.CLIENT_API_URL.split(',') : true,
   credentials: true
 }));
 
